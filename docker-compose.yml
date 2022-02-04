@@ -3,6 +3,8 @@ services:
   blog:
     container_name: blogjava
     network_mode: bridge
+    depends_on:
+      - postgres_db
     ports:
       - "9000:9000"
     image: blogjava
