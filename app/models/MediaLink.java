@@ -2,16 +2,21 @@ package models;
 
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity(name = "media")
 public class MediaLink extends BaseModel{
-	
 	@Column
 	private String multimediaLink;
 	
 	@Column
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JsonBackReference
 	private Post post;
 	
 	public MediaLink() {

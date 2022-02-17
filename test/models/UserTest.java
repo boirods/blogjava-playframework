@@ -18,7 +18,7 @@ public class UserTest {
 		user.setEmail("teste@teste.com.br");
 		user.setPassword("teste123A#$");
 		
-		assertTrue("IsValid.", UserUtils.isValidEmail(user.getEmail()));
-		assertTrue("IsValid.", UserUtils.isValidPassword(user.getPassword()));
+		assertTrue("IsValid Email.", UserUtils.isValidEmail(user.getEmail()));
+		assertTrue("IsValid Pass.", UserUtils.isValidPassword(user.getPassword()));
 	}
 }

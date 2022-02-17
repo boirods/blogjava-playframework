@@ -5,5 +5,33 @@
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.index()
 
+#User routes
++ nocsrf
+POST	/api/user					controllers.UserController.salva(novo:Request)
++ nocsrf
+GET		/api/user/todos/			controllers.UserController.pegaTodos()
++ nocsrf
+GET		/api/user/:id				controllers.UserController.pegaId(id:String)
++ nocsrf
+GET		/api/user/:email/			controllers.UserController.pegaEmail(email:String)
++ nocsrf
+PUT		/api/user/:id				controllers.UserController.altera(novo:Request, id:String)
++ nocsrf
+DELETE	/api/user/:id				controllers.UserController.apaga(id:String)
+
+#Post routes
++ nocsrf
+POST	/api/post					controllers.PostController.salva(novo:Request)
++ nocsrf
+GET		/api/post/todos/			controllers.PostController.pegaTodos()
++ nocsrf
+GET		/api/post/:id				controllers.PostController.pegaId(id:String)
++ nocsrf
+GET		/api/post/:titulo/			controllers.PostController.pegaTitulo(titulo:String)
++ nocsrf
+PUT		/api/post/:id				controllers.PostController.altera(novo:Request, id:String)
++ nocsrf
+DELETE	/api/post/:id				controllers.PostController.apaga(id:String)
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
