@@ -35,7 +35,7 @@ DELETE	/api/post/:id				controllers.PostController.apaga(id:String)
 
 #Post routes
 + nocsrf
-POST	/api/media/					controllers.MediaLinkController.salva(novo:Request)
+POST	/api/media					controllers.MediaLinkController.salva(novo:Request)
 + nocsrf
 GET		/api/media/todos/			controllers.MediaLinkController.pegaTodos()
 + nocsrf
