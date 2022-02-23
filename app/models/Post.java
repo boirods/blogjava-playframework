@@ -8,9 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.joda.time.LocalDateTime;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+import io.ebean.DB;
 import io.ebean.Finder;
 
 /**
@@ -47,6 +50,9 @@ public class Post extends BaseModel {
 	@Column
 	private int downvotes;
 	
+	@Column
+	private String updatingDate;
+	
 	/**
 	 * Representa o usuário que fez a postagem na aplicação
 	 */
@@ -63,6 +69,7 @@ public class Post extends BaseModel {
 	 */
 	public Post() {
 		super();
+		updatingDate = LocalDateTime.now().toString();
 	}
 
 	/**
@@ -159,6 +166,27 @@ public class Post extends BaseModel {
 	 */
 	public void setUsuario(User usuario) {
 		this.usuario = usuario;
+	}
+	
+	/**
+	 * Pega a data da ultima atualização do post.
+	 * @return data da ultima atualização
+	 */
+	public String getUpdatingDate() {
+		return this.updatingDate;
+	}
+	/**
+	 * Altera a data de atualização do post.
+	 * @param updatingDate data da atualização do post (localtime.now)
+	 */
+	public void setUpdatingDate() {
+		this.updatingDate = LocalDateTime.now().toString();
+	}
+	
+	public static List<Post> findByTitulo(String titulo) {
+		@SuppressWarnings("unchecked")
+		List<Post> posts = (List<Post>) DB.find(Post.class).where().like("titulo", "%"+titulo+"%").findList();
+		return posts;
 	}
 
 	@Override

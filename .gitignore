@@ -1,1 +1,10 @@
+.settings
 test/resources
+.bsp
+.classpath
+.project
+.vscode/
+target
+project/target/
+project/project/
+conf/evolutions

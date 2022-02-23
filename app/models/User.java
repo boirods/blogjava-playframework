@@ -8,6 +8,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
+import org.joda.time.LocalDateTime;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import io.ebean.DB;
@@ -34,6 +38,8 @@ public class User extends BaseModel{
 	
 	@Column
 	private String bio;
+	@Column
+	private String registrationDate;
 	
 	/**
 	 * Lista de posts do usuário.
@@ -47,6 +53,7 @@ public class User extends BaseModel{
 	 */
     public User(){
     	super();
+    	this.registrationDate = LocalDateTime.now().toString();
     }
     
     @Override
@@ -118,6 +125,10 @@ public class User extends BaseModel{
 		this.posts = posts;
 	}
 	
+	public String getRegistrationDate() {
+		return this.registrationDate;
+	}
+	
 	/**
 	 * Método para recuperar o usuário pelo email informado como parametro.
 	 * @param email a ser procurado
@@ -125,7 +136,7 @@ public class User extends BaseModel{
 	 */
 	public static User findByEmail(String email) {
 		new User();
-		User user = (User) DB.find(User.class).where().eq("email", email);
+		User user = (User) DB.find(User.class).where().eq("email", email).findOne();
 		return user;
 	}
 	

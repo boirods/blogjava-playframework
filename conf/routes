@@ -33,5 +33,18 @@ PUT		/api/post/:id				controllers.PostController.altera(novo:Request, id:String)
 + nocsrf
 DELETE	/api/post/:id				controllers.PostController.apaga(id:String)
 
+#Post routes
++ nocsrf
+POST	/api/media/					controllers.MediaLinkController.salva(novo:Request)
++ nocsrf
+GET		/api/media/todos/			controllers.MediaLinkController.pegaTodos()
++ nocsrf
+GET		/api/media/:id				controllers.MediaLinkController.pegaId(id:String)
++ nocsrf
+PUT		/api/media/:id				controllers.MediaLinkController.altera(novo:Request, id:String)
++ nocsrf
+DELETE	/api/media/:id				controllers.MediaLinkController.apaga(id:String)
+
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

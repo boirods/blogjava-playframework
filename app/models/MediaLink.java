@@ -9,13 +9,20 @@ import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
+import io.ebean.Finder;
+
 @Entity(name = "media")
 public class MediaLink extends BaseModel{
+	public static final Finder<UUID, MediaLink> find = new Finder<UUID, MediaLink>(MediaLink.class);
+	
 	@Column
 	private String multimediaLink;
 	
 	@Column
-	@ManyToOne(cascade=CascadeType.ALL)
+	private String mediaType;
+	
+	@Column
+	@ManyToOne
 	@JsonBackReference
 	private Post post;
 	
@@ -28,12 +35,20 @@ public class MediaLink extends BaseModel{
 		return this.id;
 	}
 
-	public String getImageLink() {
+	public String getMediaLink() {
 		return multimediaLink;
 	}
 
-	public void setImageLink(String imageLink) {
-		this.multimediaLink = imageLink;
+	public void setMediaLink(String mediaLink) {
+		this.multimediaLink = mediaLink;
+	}
+	
+	public String getMediaType() {
+		return mediaType;
+	}
+	
+	public void setMediaType(String mediaType) {
+		this.mediaType=mediaType;
 	}
 
 	public Post getPost() {
@@ -43,6 +58,4 @@ public class MediaLink extends BaseModel{
 	public void setPost(Post post) {
 		this.post = post;
 	}
-	
-	
 }
