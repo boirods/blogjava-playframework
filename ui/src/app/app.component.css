@@ -1,0 +1,17 @@
+.matbtn{
+    color: brown;
+    background-color: darkblue;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 3px;
+}
+.matbtn:hover{
+    background-color: cadetblue;
+    padding: 5px;
+    border-radius: 5px;
+}
+.espacado{
+    display: flex;
+    flex: 1 1 auto;
+    text-align: center;
+}
