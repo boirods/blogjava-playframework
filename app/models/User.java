@@ -37,7 +37,11 @@ public class User extends BaseModel{
     private String password;
 	
 	@Column
+	private String name;
+	
+	@Column
 	private String bio;
+	
 	@Column
 	private String registrationDate;
 	
@@ -94,6 +98,22 @@ public class User extends BaseModel{
 	}
 	
 	/**
+	 * Metodo para recuperar o nome
+	 * @return nome do usuario
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * Método para alterar o nome do usuário.
+	 * @param name nome a ser alterado
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
 	 * Método para recuperar a biografia do usuário.
 	 * @return a biografiado usuário em formato String.
 	 */
@@ -125,6 +145,10 @@ public class User extends BaseModel{
 		this.posts = posts;
 	}
 	
+	/**
+	 * Método para pegar a data de registro do usuário.
+	 * @return
+	 */
 	public String getRegistrationDate() {
 		return this.registrationDate;
 	}
