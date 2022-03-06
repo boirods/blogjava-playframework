@@ -1,15 +1,15 @@
 <!-- * * * * * * * Edite o que está abaixo * * * * * * * * * * * * * -->
-<p class="bar">
+
+<div class="bar">
     <mat-toolbar color="primary">
-        <button mat-icon-button aria-label="Home button" color="primary">
-            <a href="index.html"><mat-icon>home</mat-icon></a>
-        </button>
         <h1 class="espacado">BlogJava</h1>
-        <button mat-icon-button aria-label="Menu button" color="primary" >
-            <mat-icon color="primary">menu</mat-icon>
-        </button>
+        <a type="button" href="index.html" class="mybtn">Home</a>
+        <a type="button" class="mybtn" color="primary" [matMenuTriggerFor]="menu" mat-button style="margin-right:0px !important">More</a>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item><span class="myspan">Registrar-se</span></button>
+        </mat-menu>
     </mat-toolbar>
-</p>
+</div>
 <!-- * * * * * * * * * * Edite o que está acima * * * * * * * * * * -->
 
 <router-outlet></router-outlet>
