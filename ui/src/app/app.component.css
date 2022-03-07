@@ -21,3 +21,17 @@
     font-weight: 700;
     margin: 8px;
 }
+.postitle{
+    background-color: chocolate;
+    color: blue;
+    line-height: 1rem;
+    margin: 10px;
+}
+.postdata{
+    background-color: coral;
+    padding-bottom: 0px;
+    margin: 10px 10px 10px 10px;
+}
+.meuPost{
+    background-color: skyblue;
+}

@@ -8,6 +8,12 @@ const PROXY_CONFIG = {
                 return "/index.html";
             }
         }
+    },
+    '/api':{
+        'target':'http://localhost:9000',
+        'secure': true,
+        'changeOrigin': true,
+        'pathRewrite': {'^/api':''}
     }
 };
 
