@@ -6,17 +6,10 @@
         <a type="button" href="index.html" class="mybtn">Home</a>
         <a type="button" class="mybtn" color="primary" [matMenuTriggerFor]="menu" mat-button style="margin-right:0px !important">More</a>
         <mat-menu #menu="matMenu">
-            <button mat-menu-item><span class="myspan">Registrar-se</span></button>
+            <a routerLink="/register" class="teste"><button mat-menu-item>Registrar-se</button></a>
         </mat-menu>
     </mat-toolbar>
 </div>
-
-<div class="posts">
-    <div class="meuPost" *ngFor="let post of posts">
-        <h2 class="postitle">{{post.titulo}}</h2>
-        <p class="postdata">{{ post.idUsuario }} - updated at {{ post.updatingDate }} - has {{post.upvotes}} likes  and {{post.downvotes}} dislikes.</p>
-    </div>
-</div>
 <!-- * * * * * * * * * * Edite o que está acima * * * * * * * * * * -->
-
 <router-outlet></router-outlet>
+<app-index-posts></app-index-posts>

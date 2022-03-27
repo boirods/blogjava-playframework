@@ -1,0 +1,14 @@
+<div class="container">
+    <h1 class="title" color="primary">Registrando Usuário</h1>
+    <form [formGroup]="registroGroup" (ngSubmit)="registra()" class="formulario">
+        <label for="email">Email</label><br>
+        <input type="email" formControlName="email" class="formItem"><br>
+        <label for="senha" class="formItem">Senha</label><br>
+        <input type="password" formControlName="senha" class="formItem"><br>
+        <label for="nome" class="formItem">Nome</label><br>
+        <input type="text" formControlName="nome" class="formItem"><br>
+        <label for="bio" class="formItem">Biografia</label><br>
+        <textarea formControlName="bio" class="formItem"></textarea><br>
+        <button type="submit" [disabled]="!registroGroup.valid" color="primary">Enviar</button>
+    </form>
+</div>

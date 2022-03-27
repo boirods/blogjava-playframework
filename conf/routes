@@ -11,6 +11,8 @@ POST	/api/user					controllers.UserController.salva(novo:Request)
 + nocsrf
 GET		/api/user/todos/			controllers.UserController.pegaTodos()
 + nocsrf
+GET		/api/user/allpostalluser	controllers.UserController.getAllPostAllUsers()
++ nocsrf
 GET		/api/user/:id				controllers.UserController.pegaId(id:String)
 + nocsrf
 GET		/api/user/:email/			controllers.UserController.pegaEmail(email:String)

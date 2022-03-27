@@ -2,8 +2,10 @@ package controllers;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.UUID;
 
+import models.Post;
 import models.User;
 import play.libs.Json;
 import play.mvc.Controller;
@@ -31,6 +33,15 @@ public class UserController extends Controller{
 		}
 		
 	}
+	
+	public Result getAllPostAllUsers() {
+		ArrayList<Post> allpostalluser = new ArrayList<Post>();
+		for(User user: User.find.all()) {
+			allpostalluser.addAll(user.getPosts());
+		}
+		return ok(Json.toJson(allpostalluser));
+	}
+	
 	public Result altera(Request novo, String id) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		user = User.find.byId(UUID.fromString(id));
 		User novoUser = Json.fromJson(novo.body().asJson(), User.class);

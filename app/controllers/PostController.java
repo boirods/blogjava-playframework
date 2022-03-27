@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.List;
 import java.util.UUID;
 
 import models.Post;
@@ -20,6 +21,7 @@ public class PostController extends Controller {
 		if(novo.body().asJson().has("usuário")) {
 			post.setUsuario(User.find.byId(UUID.fromString(novo.body().asJson().get("usuário").textValue())));
 			post.setTitulo(PostUtils.urlFriendler4Titles(post.getTitulo()));
+			post.setPublisherName(post.getUsuario().getEmail());
 			post.save();
 			post.refresh();
 			return ok(Json.toJson(post));
@@ -57,7 +59,11 @@ public class PostController extends Controller {
 		return ok(Json.toJson(post));
 	}
 	public Result pegaTodos() {
-		return ok(Json.toJson(Post.find.all()));
+		List<Post> listaPosts = Post.find.all();
+		for(Post post : listaPosts) {
+			post.setTitulo(utils.PostUtils.titleFriendler4Titles(post.getTitulo()));
+		}
+		return ok(Json.toJson(listaPosts));
 	}
 	
 	public Result pegaId(String id) {

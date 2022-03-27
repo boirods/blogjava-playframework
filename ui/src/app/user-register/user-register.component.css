@@ -1,0 +1,13 @@
+.title{
+    text-align: center;
+    color: #005eff;
+}
+.formulario{
+    margin-left: 10px;
+    margin-right: 10px;
+    width: calc(100%-20px);
+}
+.formItem{
+    padding-right: 10px;
+    width: 95%;
+}

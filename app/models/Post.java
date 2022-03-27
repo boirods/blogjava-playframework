@@ -53,6 +53,9 @@ public class Post extends BaseModel {
 	@Column
 	private String updatingDate;
 	
+	@Column
+	private String publisherName;
+	
 	/**
 	 * Representa o usuário que fez a postagem na aplicação
 	 */
@@ -192,6 +195,14 @@ public class Post extends BaseModel {
 	@Override
 	public UUID getId() {
 		return this.id;
+	}
+
+	public String getPublisherName() {
+		return publisherName;
+	}
+
+	public void setPublisherName(String publisherName) {
+		this.publisherName = publisherName;
 	}
 	
 }

@@ -11,10 +11,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { PostServiceService } from './services/post-service.service';
+import { UserService } from './services/user.service';
+import { UserRegisterComponent } from './user-register/user-register.component';
+import { IndexPostsComponent } from './index-posts/index-posts.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserRegisterComponent,
+    IndexPostsComponent
   ],
   imports: [
     BrowserModule,
@@ -22,11 +28,12 @@ import { PostServiceService } from './services/post-service.service';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatMenuModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     HttpClientModule,
-    PostServiceService
+    UserService
   ],
   bootstrap: [AppComponent]
 })
